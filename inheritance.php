@@ -2,21 +2,30 @@
 // inheritance => "is a" relationship
 class Animal{
 
+    private $type;
+
+    public function setType($type){
+        $this->type = $type;
+    }
+
     public function eat(){
-        echo "Eating";
+        echo $this->type ." is Eating";
     }
 
     public function sleep(){
-        echo "Sleeping";
+        echo $this->type ." is Sleeping";
     }
 }
 
 class Cat extends Animal{
-
+    public function mow(){
+        return 'mow';
+    }
 }
 
 $animal = new Animal();
 
 $cat = new Cat();
+$cat->setType("pussy cat");
 
-print_r($cat->eat());
+echo ($cat->eat());
